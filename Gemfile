@@ -36,11 +36,12 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # 2. Adding rswag gems
-  # 3. After that run bundle install and run the generator: rails g rswag:install
-  # 4. It creates the initializers: 
+  # 3. Note that this adds Rspec gem too. Run the rspec generator if you haven't already: rails g rspec:install
+  # 4. Then, run bundle install and run the rswag generator: rails g rswag:install
+  # 5. It creates the initializers: 
   # - config/initializers/rswag-api.rb
   # - config/initializers/rswag-ui.rb
-  # 5. After that, you can start coding tests. Check spec/integration folder
+  # 6. After that, you can start coding specs. Check the spec/integration folder
   gem 'rspec-rails'
   gem 'rswag-specs'
 end
