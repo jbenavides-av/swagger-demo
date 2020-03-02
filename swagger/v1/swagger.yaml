@@ -1,0 +1,141 @@
+---
+swagger: '2.0'
+info:
+  title: Swagger Demo API V1
+  version: v1
+basePath: ''
+definitions:
+  Genre:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: '1'
+      name:
+        type: string
+        example: Literatura Clásica
+  Book:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: '1'
+      title:
+        type: string
+        example: Don Quijote de la Mancha
+      isbn:
+        type: integer
+        example: '9780805511963'
+      genre:
+        "$ref": "#/definitions/Genre"
+  ErrorResponse:
+    type: object
+    properties:
+      messages:
+        type: array
+        items:
+          type: string
+          example: Error description
+paths:
+  "/books":
+    get:
+      summary: Retrieves books
+      tags:
+      - Books
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: List of books
+          schema:
+            type: object
+            properties:
+              books:
+                type: array
+                items:
+                  "$ref": "#/definitions/Book"
+    post:
+      summary: Create book
+      tags:
+      - Books
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: book
+        in: body
+        schema:
+          type: object
+          properties:
+            book:
+              "$ref": "#/definitions/Book"
+          required:
+          - book
+      responses:
+        '201':
+          description: Book created
+          schema:
+            type: object
+            properties:
+              book:
+                "$ref": "#/definitions/Book"
+        '404':
+          description: Genre not found
+          schema:
+            "$ref": "#/definitions/ErrorResponse"
+        '422':
+          description: Invalid parameters
+          schema:
+            "$ref": "#/definitions/ErrorResponse"
+  "/genres":
+    get:
+      summary: Retrieves genres
+      tags:
+      - Genres
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: List of genres
+          schema:
+            type: object
+            properties:
+              genres:
+                type: array
+                items:
+                  "$ref": "#/definitions/Genre"
+    post:
+      summary: Create genre
+      tags:
+      - Genres
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: genre
+        in: body
+        schema:
+          type: object
+          properties:
+            genre:
+              "$ref": "#/definitions/Genre"
+          required:
+          - genre
+      responses:
+        '201':
+          description: Genre created
+          schema:
+            type: object
+            properties:
+              genre:
+                "$ref": "#/definitions/Genre"
+        '422':
+          description: Invalid parameters
+          schema:
+            "$ref": "#/definitions/ErrorResponse"

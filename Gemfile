@@ -28,9 +28,21 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
+# 1. Adding rswag gems
+gem 'rswag-api'
+gem 'rswag-ui'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # 2. Adding rswag gems
+  # 3. After that run bundle install and run the generator: rails g rswag:install
+  # 4. It creates the initializers: 
+  # - config/initializers/rswag-api.rb
+  # - config/initializers/rswag-ui.rb
+  # 5. After that, you can start coding tests. Check spec/integration folder
+  gem 'rspec-rails'
+  gem 'rswag-specs'
 end
 
 group :development do
