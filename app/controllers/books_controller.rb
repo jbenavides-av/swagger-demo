@@ -6,6 +6,11 @@ class BooksController < ApplicationController
     render json: { books: @books }, status: :ok
   end
 
+  def show
+    @book = Book.includes(:genre).find(params[:id])
+    render json: { book: @book }, status: :ok
+  end
+
   def create
     @book = Book.new(book_params.merge!({genre: @genre}))
     if @book.save

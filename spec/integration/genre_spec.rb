@@ -2,7 +2,7 @@ require 'swagger_helper'
 
 describe 'Genres API' do
   path '/genres' do
-    get 'Retrieves genres' do
+    get 'Fetch genres' do
       tags 'Genres'
       consumes 'application/json'
       produces 'application/json'
@@ -15,7 +15,7 @@ describe 'Genres API' do
           }
         }
 
-        let!(:genre) { Genre.create(name: 'Ficción') } 
+        let!(:genre) { Genre.create(name: 'Ficción') }
 
         run_test! do |response|
           data = JSON.parse(response.body)
@@ -26,7 +26,7 @@ describe 'Genres API' do
       end
     end
 
-    post 'Create genre' do
+    post 'Creates a genre' do
       tags 'Genres'
       consumes 'application/json'
       produces 'application/json'
@@ -49,8 +49,8 @@ describe 'Genres API' do
         # In other words, let and parameter names should be the same
         let(:genre) do
           {
-            genre: { 
-              name: "Ficción" 
+            genre: {
+              name: "Ficción"
             }
           }
         end
@@ -70,8 +70,8 @@ describe 'Genres API' do
         # In other words, let and parameter names should be the same
         let(:genre) do
           {
-            genre: { 
-              name: "a" 
+            genre: {
+              name: "a"
             }
           }
         end
