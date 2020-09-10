@@ -2,6 +2,7 @@ require 'swagger_helper'
 
 describe 'Genres API' do
   path '/genres' do
+    # Index action for the genres controller
     get 'Fetch genres' do
       tags 'Genres'
       consumes 'application/json'
@@ -26,6 +27,7 @@ describe 'Genres API' do
       end
     end
 
+    # Create action for the genres controller
     post 'Creates a genre' do
       tags 'Genres'
       consumes 'application/json'

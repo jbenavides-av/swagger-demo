@@ -2,6 +2,7 @@ require 'swagger_helper'
 
 describe 'Books API' do
   path '/books' do
+    # Index action for the books controller
     get 'Fetch books' do
       tags 'Books'
       consumes 'application/json'
@@ -27,6 +28,7 @@ describe 'Books API' do
       end
     end
 
+    # Create action for the books controller
     post 'Creates a book' do
       tags 'Books'
       consumes 'application/json'
@@ -125,6 +127,7 @@ describe 'Books API' do
     end
   end
 
+  # Show action for the books controller
   path '/books/{id}' do
     get 'Fetch a book' do
       tags 'Books'

@@ -3,7 +3,7 @@ swagger: '2.0'
 info:
   title: Swagger Demo API V1
   version: v1
-basePath: ''
+basePath: "/"
 definitions:
   Genre:
     type: object

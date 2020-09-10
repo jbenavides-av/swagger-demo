@@ -19,7 +19,7 @@ RSpec.configure do |config|
         title: 'Swagger Demo API V1',
         version: 'v1'
       },
-      basePath: '',
+      basePath: '/',
       definitions: {
         Genre: {
           type: 'object',
