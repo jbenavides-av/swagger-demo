@@ -50,7 +50,7 @@ describe 'Books API' do
 
         let!(:genre) { Genre.create(name: "Drama") }
 
-        # Variable name should be the same as defined in the parameter method (line 34)
+        # Variable name should be the same as defined in the parameter method (line 36)
         # In other words, let and parameter names should be the same
         let(:book) do
           {
@@ -76,7 +76,7 @@ describe 'Books API' do
       response '404', 'Genre not found' do
         schema '$ref' => '#/definitions/ErrorResponse'
 
-        # Variable name should be the same as defined in the parameter method (line 34)
+        # Variable name should be the same as defined in the parameter method (line 36)
         # In other words, let and parameter names should be the same
         let(:book) do
           {
@@ -103,7 +103,7 @@ describe 'Books API' do
 
         let!(:genre) { Genre.create(name: "Drama") }
 
-        # Variable name should be the same as defined in the parameter method (line 34)
+        # Variable name should be the same as defined in the parameter method (line 36)
         # In other words, let and parameter names should be the same
         let(:book) do
           {
@@ -142,7 +142,7 @@ describe 'Books API' do
 
         let(:genre) { Genre.create(name: 'Ficcion') }
         let!(:book) { Book.create(title: 'Book #1', isbn: 12345, genre: genre) }
-        let(:id) { book.id } # Should have the same name as the parameter name defined in line 133
+        let(:id) { book.id } # Should have the same name as the parameter name defined in line 136
 
         run_test! do |response|
           data = JSON.parse(response.body)
@@ -158,7 +158,7 @@ describe 'Books API' do
       response '404', 'Book not found' do
         schema '$ref' => '#/definitions/ErrorResponse'
 
-        let(:id) { -1 } # Should have the same name as the parameter name defined in line 133
+        let(:id) { -1 } # Should have the same name as the parameter name defined in line 136
 
         run_test! do |response|
           data = JSON.parse(response.body)

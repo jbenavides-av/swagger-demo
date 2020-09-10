@@ -47,7 +47,7 @@ describe 'Genres API' do
           genre: { '$ref' => '#/definitions/Genre' }
         }
 
-        # Variable name should be the same as defined in the parameter method (line 33)
+        # Variable name should be the same as defined in the parameter method (line 35)
         # In other words, let and parameter names should be the same
         let(:genre) do
           {
@@ -68,7 +68,7 @@ describe 'Genres API' do
       response '422', 'Invalid parameters' do
         schema '$ref' => '#/definitions/ErrorResponse'
 
-        # Variable name should be the same as defined in the parameter method (line 33)
+        # Variable name should be the same as defined in the parameter method (line 35)
         # In other words, let and parameter names should be the same
         let(:genre) do
           {
